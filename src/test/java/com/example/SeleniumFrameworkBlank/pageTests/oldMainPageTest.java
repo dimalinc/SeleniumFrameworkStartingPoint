@@ -1,4 +1,4 @@
-package com.example.SeleniumFrameworkBlank;
+package com.example.SeleniumFrameworkBlank.pageTests;
 
 
 
@@ -10,16 +10,16 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.*;
-import pageObjects.MainPage;
+import pageObjects.old_MainPage;
 
 import java.util.concurrent.TimeUnit;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
-public class MainPageTest {
+public class oldMainPageTest {
     private WebDriver driver;
-    private MainPage mainPage;
+    private old_MainPage oldMainPage;
 
     @BeforeTest
     public void setUp() {
@@ -32,7 +32,7 @@ public class MainPageTest {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get("https://www.jetbrains.com/");
 
-        mainPage = new MainPage(driver);
+        oldMainPage = new old_MainPage(driver);
     }
 
     @AfterTest
@@ -42,7 +42,7 @@ public class MainPageTest {
 
     @Test
     public void search() {
-        mainPage.searchButton.click();
+        oldMainPage.searchButton.click();
 
         WebElement searchField = driver.findElement(By.id("header-search"));
         searchField.sendKeys("Selenium");
@@ -57,7 +57,7 @@ public class MainPageTest {
     @Test
     public void toolsMenu() {
         new Actions(driver)
-                .moveToElement(mainPage.toolsMenu)
+                .moveToElement(oldMainPage.toolsMenu)
                 .perform();
 
         WebElement menuPopup = driver.findElement(By.className("menu-main__popup-wrapper"));
@@ -66,7 +66,7 @@ public class MainPageTest {
 
     @Test
     public void navigationToAllTools() {
-        mainPage.seeAllToolsButton.click();
+        oldMainPage.seeAllToolsButton.click();
 
         WebElement productsList = driver.findElement(By.className("products-list"));
         assertTrue(productsList.isDisplayed());

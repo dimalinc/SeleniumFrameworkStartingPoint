@@ -1,17 +1,19 @@
 package elements;
 
 
+import elements.basicElements.ElementStatus;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public abstract class BaseElement {
 
     static final Logger rootLogger = LogManager.getRootLogger();
     static final Logger test1Logger = LogManager.getLogger(BaseElement.class);
-
     protected By locator;
+    private ElementStatus elementStatus;
 
     public String getElementName() {
         return elementName;
@@ -61,6 +63,25 @@ public abstract class BaseElement {
 
     public void setLocator(By locator) {
         this.locator = locator;
+    }
+
+    // https://stackoverflow.com/questions/14156656/how-to-verify-element-present-or-visible-in-selenium-2-selenium-webdriver
+    public ElementStatus isElementVisible(WebDriver driver, By by, ElementStatus getStatus){
+        try{
+            if(getStatus.equals(ElementStatus.ENABLED)){
+                if(driver.findElement(by).isEnabled())
+                    return ElementStatus.ENABLED;
+                return ElementStatus.NOTENABLED;
+            }
+            if(getStatus.equals(ElementStatus.VISIBLE)){
+                if(driver.findElement(by).isDisplayed())
+                    return ElementStatus.VISIBLE;
+                return ElementStatus.NOTVISIBLE;
+            }
+            return ElementStatus.PRESENT;
+        }catch(org.openqa.selenium.NoSuchElementException nse){
+            return ElementStatus.NOTPRESENT;
+        }
     }
 
 

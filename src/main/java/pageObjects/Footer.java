@@ -1,4 +1,4 @@
 package pageObjects;
 
-public class MainPage {
+public class Footer {
 }
