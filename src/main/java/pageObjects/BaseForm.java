@@ -1,6 +1,6 @@
 package pageObjects;
 
-import elements.BaseElement;
+import elements.base.BaseElement;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

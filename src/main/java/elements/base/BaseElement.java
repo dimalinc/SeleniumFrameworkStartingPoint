@@ -1,34 +1,39 @@
-package elements;
+package elements.base;
 
 
-import elements.basicElements.ElementStatus;
+import browser.BrowserFactory;
+import elements.webelements.ElementStatus;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+
+import java.util.List;
+import java.util.logging.Level;
 
 public abstract class BaseElement {
 
     static final Logger rootLogger = LogManager.getRootLogger();
     static final Logger test1Logger = LogManager.getLogger(BaseElement.class);
     protected By locator;
+    protected String elementName;
     private ElementStatus elementStatus;
 
     public String getElementName() {
         return elementName;
     }
 
-    protected String elementName;
 
     public BaseElement(By locator, String elementName) {
-        test1Logger.info("created " + elementName);
         this.locator = locator;
         this.elementName = elementName;
+        test1Logger.info("created " + elementName);
     }
 
     public String getValue() {
-        return browser.BrowserFactory.getDriver().findElement(locator).getAttribute("value");
+        return BrowserFactory.getDriver().findElement(locator).getAttribute("value");
     }
 
     public By getLocator() {
@@ -36,7 +41,11 @@ public abstract class BaseElement {
     }
 
     protected WebElement findElement() {
-        return browser.BrowserFactory.getDriver().findElement(locator);
+        return BrowserFactory.getDriver().findElement(locator);
+    }
+
+    protected List<WebElement> findElements() {
+        return BrowserFactory.getDriver().findElements(locator);
     }
 
     public void click() {
@@ -44,16 +53,24 @@ public abstract class BaseElement {
         findElement().click();
     }
 
-
     public boolean isDisplayed() {
         return findElement().isDisplayed();
     }
 
+    public boolean isPresent() {
+        return (findElements().size() > 0);
+    }
+
+    public boolean isSelected() {
+        return findElement().isSelected();
+    }
+
     public String getText() {
+        test1Logger.info("get text element  ==>" + this.elementName+"="+findElement().getText());
         return findElement().getText();
     }
 
-    public void enterText(String text) {
+    public void sendKeys(String text) {
         findElement().sendKeys(text);
     }
 
@@ -63,6 +80,15 @@ public abstract class BaseElement {
 
     public void setLocator(By locator) {
         this.locator = locator;
+    }
+
+    public void moveToClick() {
+        test1Logger.info("Move to  element and Click  ==>" + this.elementName);
+        new Actions(BrowserFactory.getDriver()).moveToElement(findElement()).click().perform();
+    }
+    public void moveToElement() {
+        test1Logger.info("Move to  element ==>" + this.elementName);
+        new Actions(BrowserFactory.getDriver()).moveToElement(findElement()).perform();
     }
 
     // https://stackoverflow.com/questions/14156656/how-to-verify-element-present-or-visible-in-selenium-2-selenium-webdriver
@@ -82,6 +108,10 @@ public abstract class BaseElement {
         }catch(org.openqa.selenium.NoSuchElementException nse){
             return ElementStatus.NOTPRESENT;
         }
+    }
+
+    public String elementVisibleCheck (WebDriver driver) {
+      return this.getElementName() + " " + isElementVisible(driver, this.getLocator(), ElementStatus.VISIBLE).toString();
     }
 
 

@@ -1,7 +1,7 @@
-package elements.basicElements;
+package elements.webelements;
 
 import browser.BrowserFactory;
-import elements.BaseElement;
+import elements.base.BaseElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;

@@ -17,7 +17,6 @@ public class BrowserFactory {
     private static WebDriver driver;
     public static Properties prop;
 
-
     public static WebDriver getDriver() {
         if (driver == null)
            driver = initializeDriver();
@@ -47,8 +46,6 @@ public class BrowserFactory {
         switch (browserName) {
 
             case "chrome": {
-
-
                 //Set up driver
                 ChromeOptions options = new ChromeOptions();
                 // ToDo: можно было использовать здесь String.format()
@@ -67,7 +64,6 @@ public class BrowserFactory {
                 options.addArguments("window-size=" + windowHeight + "," + windowWidth);
                 options.setCapability("applicationCacheEnabled", false);
                 */
-
                 FirefoxProfile profile = new FirefoxProfile();
                 profile.setPreference("browser.download.folderList", 1);
                 profile.setPreference("browser.download.manager.showWhenStarting", false);

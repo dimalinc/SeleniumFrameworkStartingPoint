@@ -1,6 +1,6 @@
-package elements.basicElements;
+package elements.webelements;
 
-import elements.BaseElement;
+import elements.base.BaseElement;
 import org.openqa.selenium.By;
 
 public class Button extends BaseElement {

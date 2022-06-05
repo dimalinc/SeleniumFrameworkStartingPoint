@@ -1,9 +1,9 @@
 package pageObjects;
 
-import elements.BaseElement;
-import elements.basicElements.Button;
-import elements.basicElements.Image;
-import elements.basicElements.SeleniumSelect;
+import elements.base.BaseElement;
+import elements.webelements.Button;
+import elements.webelements.Image;
+import elements.webelements.SeleniumSelect;
 import org.openqa.selenium.By;
 
 public class HomePageFoxATV extends BaseForm{

@@ -16,8 +16,6 @@ public class WebDriverManagerTest {
 
         // Navigate to the i.ua website
         driver.get("https://i.ua");
-
-
         driver.quit();
 
     }

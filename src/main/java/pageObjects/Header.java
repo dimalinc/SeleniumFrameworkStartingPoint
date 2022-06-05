@@ -1,9 +1,9 @@
 package pageObjects;
 
-import elements.BaseElement;
-import elements.basicElements.Image;
-import elements.basicElements.Input;
-import elements.basicElements.Label;
+import elements.base.BaseElement;
+import elements.webelements.Image;
+import elements.webelements.Input;
+import elements.webelements.Label;
 import org.openqa.selenium.By;
 
 public class Header extends BaseForm{
@@ -19,7 +19,7 @@ public class Header extends BaseForm{
 
     private static final Label myAccountMenuItem = new Label(By.xpath("//*[@id=\"mega-menu-item-240488\"]"),"myAccountMenuItem");
     private static final Label homeMenuItem = new Label(By.xpath("//*[@id=\"mega-menu-item-240489\"]"),"homeMenuItem");
-    private static final Label shopMenuItem = new Label(By.xpath("//*[@id=\"mega-menu-item-240492\"]"),"shopMenuItem");
+    private static final Label shopMenuItem = new Label(By.xpath("//*[@id=\"mega-menu-item-240489\"]"),"shopMenuItem");
     private static final Label aboutUsMenuItem = new Label(By.xpath("//*[@id=\"mega-menu-item-240493\"]"),"aboutUsMenuItem");
     private static final Label contactUsMenuItem = new Label(By.xpath("//*[@id=\"mega-menu-item-240494\"]"),"contactUsMenuItem");
     private static final Label warrantyMenuItem = new Label(By.xpath("//*[@id=\"mega-menu-item-311466\"]"),"warrantyMenuItem");

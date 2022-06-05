@@ -1,6 +1,7 @@
 package com.example.SeleniumFrameworkBlank;
 
 import browser.BrowserFactory;
+import browser.BrowserFactory2;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.io.FileUtils;
@@ -37,7 +38,6 @@ public class BaseTest {
         });
 
         return data;
-
     }
 
     @AfterTest
