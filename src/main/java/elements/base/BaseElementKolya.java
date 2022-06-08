@@ -1,6 +1,9 @@
 package elements.base;
 
+import browser.Browser;
 import browser.BrowserFactory;
+import browser.BrowserFactory2;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;

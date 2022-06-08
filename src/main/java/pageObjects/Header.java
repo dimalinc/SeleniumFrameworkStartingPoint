@@ -24,7 +24,7 @@ public class Header extends BaseForm{
     private static final Label contactUsMenuItem = new Label(By.xpath("//*[@id=\"mega-menu-item-240494\"]"),"contactUsMenuItem");
     private static final Label warrantyMenuItem = new Label(By.xpath("//*[@id=\"mega-menu-item-311466\"]"),"warrantyMenuItem");
 
-    public static BaseElement getUniqueElement() {
+/*    public static BaseElement getUniqueElement() {
         return uniqueElement;
     }
     public static Input getSearchInput() {
@@ -56,5 +56,24 @@ public class Header extends BaseForm{
     }
     public static Label getWarrantyMenuItem() {
         return warrantyMenuItem;
+    }*/
+
+    public void logoClick() {
+        uniqueElement.click();
     }
+    public void setSearchInputClick() {
+        searchInput.click();
+    }
+    public void cartImageClick() { cartImage.click();}
+    public void searchIconClick() {
+        searchIcon.click();
+    }
+    public void cartPriceLabelClick () {cartPriceLabel.click();}
+    public void myAccountMenuItemClick () {myAccountMenuItem.click();}
+    public void homeMenuItemClick () {homeMenuItem.click();}
+    public void shopMenuItemClick () {shopMenuItem.click();}
+    public void aboutUsMenuItemClick () {aboutUsMenuItem.click();}
+    public void contactUsMenuItemClick () {contactUsMenuItem.click();}
+    public void warrantyMenuItemClick () {warrantyMenuItem.click();}
+
 }
