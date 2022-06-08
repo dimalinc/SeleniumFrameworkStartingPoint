@@ -1,4 +1,4 @@
-package pageObjects;
+package pageObjects.forms;
 
 import elements.base.BaseElement;
 import org.apache.logging.log4j.LogManager;

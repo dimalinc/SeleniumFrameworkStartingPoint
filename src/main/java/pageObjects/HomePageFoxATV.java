@@ -5,8 +5,9 @@ import elements.webelements.Button;
 import elements.webelements.Image;
 import elements.webelements.SeleniumSelect;
 import org.openqa.selenium.By;
+import pageObjects.forms.BaseForm;
 
-public class HomePageFoxATV extends BaseForm{
+public class HomePageFoxATV extends BaseForm {
     public HomePageFoxATV() {
         super(uniqueElement, "HomePageFoxATV");
     }

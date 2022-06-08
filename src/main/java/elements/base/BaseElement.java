@@ -70,7 +70,7 @@ public abstract class BaseElement {
         return findElement().getText();
     }
 
-    public void sendKeys(String text) {
+    public void sendKeys(CharSequence text) {
         findElement().sendKeys(text);
     }
 

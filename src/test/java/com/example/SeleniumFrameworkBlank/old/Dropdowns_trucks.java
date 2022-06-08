@@ -1,5 +1,6 @@
-package com.example.SeleniumFrameworkBlank;
+package com.example.SeleniumFrameworkBlank.old;
 
+import com.example.SeleniumFrameworkBlank.BaseTest;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.JavascriptExecutor;

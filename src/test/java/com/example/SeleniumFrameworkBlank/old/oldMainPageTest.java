@@ -1,4 +1,4 @@
-package com.example.SeleniumFrameworkBlank.pageTests;
+package com.example.SeleniumFrameworkBlank.old;
 
 
 

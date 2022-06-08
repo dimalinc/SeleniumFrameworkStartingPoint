@@ -1,14 +1,13 @@
-package com.example.SeleniumFrameworkBlank.pageTests;
+package com.example.SeleniumFrameworkBlank.old;
 
 import browser.BrowserFactory;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-import pageObjects.Header;
+import pageObjects.forms.Header;
 
 import static org.testng.Assert.assertEquals;
-import static pageObjects.Header.*;
 
 public class HeaderTest {
     private WebDriver driver;
@@ -64,7 +63,7 @@ public class HeaderTest {
         System.out.println("SearchInput() " +  getSearchInput().isElementVisible(driver, getSearchInput().getLocator(), ElementStatus.VISIBLE) );
 */
 
-        System.out.println(getUniqueElement().elementVisibleCheck(driver));
+ /*       System.out.println(getUniqueElement().elementVisibleCheck(driver));
         System.out.println(getCartImage().elementVisibleCheck(driver));
         System.out.println(getCartPriceLabel().elementVisibleCheck(driver));
         System.out.println(getWarrantyMenuItem().elementVisibleCheck(driver));
@@ -73,7 +72,7 @@ public class HeaderTest {
         System.out.println(getHomeMenuItem().elementVisibleCheck(driver));
         System.out.println(getAboutUsMenuItem().elementVisibleCheck(driver));
         System.out.println(getSearchIcon().elementVisibleCheck(driver));
-        System.out.println(getSearchInput().elementVisibleCheck(driver));
+        System.out.println(getSearchInput().elementVisibleCheck(driver));*/
 
     }
 
