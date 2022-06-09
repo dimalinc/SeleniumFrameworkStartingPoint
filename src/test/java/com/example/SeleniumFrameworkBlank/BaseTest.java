@@ -1,5 +1,6 @@
 package com.example.SeleniumFrameworkBlank;
 
+import browser.Browser;
 import browser.BrowserFactory;
 import browser.BrowserFactory2;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -24,7 +25,12 @@ public class BaseTest {
     @BeforeMethod
     public void setUp() {
         driver = BrowserFactory.getDriver();
+       // driver = Browser.getInstanceOfWebDriver().getDriver();
+       // driver.get("https://www.bilsteinlifts.com/");
         driver.get(BrowserFactory.prop.getProperty("url"));
+        driver.manage().window().maximize();
+
+
     }
 
     public List<HashMap<String, String>> getJsonData(String jsonFilePath) throws IOException {

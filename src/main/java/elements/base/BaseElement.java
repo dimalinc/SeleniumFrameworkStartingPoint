@@ -11,7 +11,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
 import java.util.List;
-import java.util.logging.Level;
 
 public abstract class BaseElement {
 

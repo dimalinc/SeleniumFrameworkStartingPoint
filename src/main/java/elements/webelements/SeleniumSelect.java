@@ -10,8 +10,10 @@ import java.util.List;
 
 public class SeleniumSelect extends BaseElement  {
     public SeleniumSelect(By locator, String elementName) {
-        super(locator, elementName);
+                super(locator, elementName);
     }
+
+
 
     public void selectOptionByIndex (int index){
         WebElement webElement = BrowserFactory.getDriver().findElement((locator));
