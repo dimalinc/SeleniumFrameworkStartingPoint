@@ -33,7 +33,7 @@ public class LoginPage extends BaseForm {
     public static void initLoginProperties() {
         try {
             FileInputStream fis =
-                    new FileInputStream(".\\src\\main\\resources\\creds.properties");
+                    new FileInputStream(".\\src\\main\\resources\\credsBilstein.properties");
             prop.load(fis);
         } catch (IOException e) {
             e.printStackTrace();
