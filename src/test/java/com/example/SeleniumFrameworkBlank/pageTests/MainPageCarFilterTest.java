@@ -24,23 +24,16 @@ public class MainPageCarFilterTest extends BaseTest {
         MainPage mainPage = new MainPage();
         Assert.assertTrue(mainPage.isOpen());
         test1Logger.debug("opening mainPage");
-
         mainPage.setCarYearSelect("2020");
         test1Logger.debug("setCarYearSelect");
         mainPage.setCarMakeSelect("Audi");
         test1Logger.debug("setCarMakeSelect");
         mainPage.setCarModelSelect("A3");
         test1Logger.debug("setCarModelSelect");
-
         mainPage.clickFindButtonLink();
         test1Logger.debug("clickFindButtonLink");
-
         System.out.println(BrowserFactory.getDriver().getCurrentUrl());
-
-
         //  driver.findElement(By.partialLinkText("https://www.bilsteinlifts.com/?swoof=1&pa_vehicle-year=")).click();
-
     }
-
 
 }

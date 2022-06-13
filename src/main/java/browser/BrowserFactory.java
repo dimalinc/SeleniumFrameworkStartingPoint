@@ -2,7 +2,6 @@ package browser;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
@@ -52,7 +51,7 @@ public class BrowserFactory {
                 options.addArguments("window-size=" + windowHeight + "," + windowWidth);
                 options.setCapability("applicationCacheEnabled", false);
                 WebDriverManager.chromedriver().setup();
-                WebDriver driver = Browsers.CHROME.create();
+                WebDriver driver = EnumBrowsers.CHROME.create();
 
                 return driver;
                 //return new ChromeDriver(options);
@@ -89,7 +88,7 @@ public class BrowserFactory {
                 capabilities.setProfile(profile);
 
                 WebDriverManager.firefoxdriver().setup();
-                return Browsers.FIREFOX.create();
+                return EnumBrowsers.FIREFOX.create();
             default:
                 throw new RuntimeException("Incorrect BrowserName");
         }

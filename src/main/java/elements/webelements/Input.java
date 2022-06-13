@@ -7,4 +7,5 @@ public class Input extends BaseElement {
     public Input(By locator, String elementName) {
         super(locator, elementName);
     }
+
 }

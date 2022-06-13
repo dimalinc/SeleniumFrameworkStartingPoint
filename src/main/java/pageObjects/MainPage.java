@@ -23,7 +23,6 @@ public class MainPage extends BaseForm {
     private Footer footer = new Footer();
     private Label selectYourVehiclelabel = new Label(By.xpath("//*[@id=\"post-701\"]/div/section[1]/div/div/div/div/div[1]/div/div/h2/strong"), "selectYourVehiclelabel");
 
-
     private SeleniumSelect carYearSelect = new SeleniumSelect(By.xpath("//select[contains(@class,'car-year')]"), "carYearSelect");
     private SeleniumSelect carMakeSelect = new SeleniumSelect(
             By.xpath("//select[contains(@class,'car-make')]"), "carMakeSelect");
