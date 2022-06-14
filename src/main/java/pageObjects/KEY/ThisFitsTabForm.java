@@ -1,16 +1,17 @@
-package pageObjects.forms;
+package pageObjects.KEY;
 
 import elements.webelements.Label;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import pageObjects.forms.BaseForm;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ThisFitsTab extends BaseForm {
+public class ThisFitsTabForm extends BaseForm {
 
 
-public ThisFitsTab() {
+public ThisFitsTabForm() {
     super(uniqueElement,"ThisFitsForm");
 }
 
