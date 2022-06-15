@@ -8,6 +8,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.KEY.KeystoneItemPage;
 import pageObjects.forms.KeystoneLoginPage;
+import utils.PageOperations;
 import utils.Random;
 import utils.Wait;
 
@@ -47,7 +48,6 @@ public class KeyItemPageTest extends BaseTest {
         int n = 0;
         for (WebElement element : plusesWebElementsList) {
             if (element.isDisplayed()) {
-
                 // js.executeScript("arguments[0].scrollIntoView();", element);
                 element.click();
                 Wait.wait(Random.random(100));
@@ -57,8 +57,17 @@ public class KeyItemPageTest extends BaseTest {
             }
         }
 
+        String pageSource = driver.getPageSource();
+
+        try {
+            PageOperations.whenWriteStringUsingBufferedWritter_thenCorrect(driver.getCurrentUrl()
+                            .replaceAll("[\\*/\\\\!\\|:?<>]", "_")
+                            .replaceAll("(%22)", "_"),
+                    driver.getCurrentUrl() + "\n" + "\n" + pageSource);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         Wait.wait(5000);
         //  keystoneItemPage.thisFitsTabClick();
     }
-
 }
