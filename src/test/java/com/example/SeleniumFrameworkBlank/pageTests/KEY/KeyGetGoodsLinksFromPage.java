@@ -51,7 +51,6 @@ public class KeyGetGoodsLinksFromPage extends BaseTest {
             e.printStackTrace();
         }
 
-
         try {
             PageOperations.whenWriteStringUsingBufferedWritter_thenCorrect("goodsLinks.txt",linksTextString);
         } catch (Exception e) {
