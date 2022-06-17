@@ -9,7 +9,7 @@ public class PageOperations {
     public static void whenWriteStringUsingBufferedWritter_thenCorrect(String fileName, String contents)
             throws IOException {
         String str = contents;
-        BufferedWriter writer = new BufferedWriter(new FileWriter(fileName));
+        BufferedWriter writer = new BufferedWriter(new FileWriter("goodsPages/"+fileName));
         writer.write(str);
 
         writer.close();
