@@ -1,8 +1,6 @@
 package utils;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -46,5 +44,14 @@ public class FileOperations {
        } catch (FileNotFoundException e) {e.printStackTrace(); }
 
         return list;
+    }
+
+    public static void whenAppendStringUsingBufferedWritter_thenOldContentShouldExistToo(String fileName,String text)
+            throws IOException {
+        BufferedWriter writer = new BufferedWriter(new FileWriter(fileName, true));
+        writer.append(text);
+        writer.append("\n");
+
+        writer.close();
     }
 }
