@@ -23,16 +23,12 @@ public class KeyItemPageTest extends BaseTest {
         driver.get("https://wwwsc.ekeystone.com/search/detail?pid=PRS924502&ssid=c5592564-01dd-4fed-bad7-e6f6844c1b48&allin=true");
 
         KeystoneLoginPage keystoneLoginPage = new KeystoneLoginPage();
-
         if (keystoneLoginPage.isOpen()) {
             keystoneLoginPage.coockiesClick();
             keystoneLoginPage.populateFields();
             keystoneLoginPage.loginClick();
         }
-
-
         Wait.wait(1000);
-
         ArrayList<String> goodsLinksArrayList = FileOperations.readFromTxtToArraylistString("goodsLinks.txt");
 
         for (String link:goodsLinksArrayList) {
@@ -46,7 +42,6 @@ public class KeyItemPageTest extends BaseTest {
         keystoneItemPage.thisFitsTabClick();
 
         //Assert.assertTrue(thisFitsTab.isOpen());
-
         KeyThisFitsTabForm keyThisFitsTabForm = new KeyThisFitsTabForm();
         List<WebElement> plusesWebElementsList = keyThisFitsTabForm.getPlusesWebElementsList();
         plusesWebElementsList = driver.findElements(By.xpath(keyThisFitsTabForm.plusXpath));
@@ -56,7 +51,7 @@ public class KeyItemPageTest extends BaseTest {
             if (element.isDisplayed()) {
                 // js.executeScript("arguments[0].scrollIntoView();", element);
                 element.click();
-                Wait.wait(Random.random(350));
+                Wait.wait(Random.random(2350));
                 System.out.println(n++);
             }
         }
