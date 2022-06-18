@@ -3,7 +3,9 @@ package com.example.SeleniumFrameworkBlank.pageTests.KEY;
 import com.example.SeleniumFrameworkBlank.BaseTest;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.KEY.KeystoneItemPage;
@@ -13,9 +15,12 @@ import utils.PageOperations;
 import utils.Random;
 import utils.Wait;
 
+import java.awt.*;
+import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
 
 public class KeySaveItemPagesFromFileWithLinksTest extends BaseTest {
 
@@ -32,7 +37,7 @@ public class KeySaveItemPagesFromFileWithLinksTest extends BaseTest {
         Wait.wait(1000);
 
         // Todo: вернуть обратно чтение ссылок из файла
-    //    ArrayList<String> goodsLinksArrayList = FileOperations.readFromTxtToArraylistString("goodsLinks.txt");
+        //    ArrayList<String> goodsLinksArrayList = FileOperations.readFromTxtToArraylistString("goodsLinks.txt");
         ArrayList<String> goodsLinksArrayList = new ArrayList<>();
         goodsLinksArrayList.add("https://wwwsc.ekeystone.com/search/detail?pid=SKYH7006");
         goodsLinksArrayList.add("https://wwwsc.ekeystone.com/search/detail?pid=SKYH7020");
@@ -64,16 +69,34 @@ public class KeySaveItemPagesFromFileWithLinksTest extends BaseTest {
 
             String pageSource = driver.getPageSource();
 
-            // Todo: ctrl+s
 
+            try {
+                Robot robot = new Robot();
+
+                robot.delay(2000);
+
+
+                robot.keyPress(KeyEvent.VK_CONTROL);
+                robot.keyPress(KeyEvent.VK_S);
+                robot.keyRelease(KeyEvent.VK_CONTROL);
+                robot.keyRelease(KeyEvent.VK_S);
+
+                robot.delay(2000);
+                robot.keyPress(KeyEvent.VK_ENTER);
+                robot.keyRelease(KeyEvent.VK_ENTER);
+
+                robot.delay(12000);
+            } catch (Exception e) {e.printStackTrace();}
+
+
+
+            Wait.wait(12000);
 
             try {
                 PageOperations.whenWriteStringUsingBufferedWritter_thenCorrect(driver.getCurrentUrl()
                                 .replaceAll("[\\*/\\\\!\\|:?<>]", "_")
                                 .replaceAll("(%22)", "_"),
                         driver.getCurrentUrl() + "\n" + "\n" + pageSource);
-
-
 
 
                 try {
